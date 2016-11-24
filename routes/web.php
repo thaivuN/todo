@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::post('/home', 'HomeController@store')->middleware('auth');
+Route::delete('/home/{story}', 'HomeController@destroy')->middleware('auth');
