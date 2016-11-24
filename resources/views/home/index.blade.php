@@ -66,14 +66,12 @@
                         <tr>
                             <td class="table-text"><strong>{{ $story->title }}</strong>
                                 {{ $story->post }}</td>
-                            @if (Auth::check() &&
-                            (($story->userCanEdit(Auth::user()))
+                            @if (Auth::check() && (($story->userCanEdit(Auth::user()))))
                             <!-- Story Delete Button -->
                             <td>
                                 <form action="/home/{{ $story->id }}" method="POST">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
-
 
                                     <button type="submit" id="delete-story-{{ $story->id }}" class="btn btn-danger">
                                         <i class="fa fa-btn fa-trash"></i>Delete
